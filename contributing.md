@@ -40,7 +40,7 @@ Facts about the on-disk format and observable behavior: layout, offsets, sizes, 
 3. On approval the header flips `DRAFT -> APPROVED`. Only approved specs are authoritative.
 4. The implementation repo bumps its submodule pin to the approved commit and implements from it.
 
-See [`PROVENANCE.md`](PROVENANCE.md) for the pinned source, derivation method, and per-fact tagging.
+See [`provenance.md`](provenance.md) for the pinned source, derivation method, and per-fact tagging.
 
 ## Provenance tagging
 
