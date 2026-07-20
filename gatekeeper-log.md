@@ -13,3 +13,15 @@ Spot-checks against the pinned source (`9b7642df...`) confirmed as facts: label 
 Stripped: one internal source macro name in the RAID-Z reflow section. Replaced with the numeric fact (shift of 9; stored value times 512 recovers the byte offset). On-disk nvlist key strings, documented magic values, and constants were retained as interface facts.
 
 Outcome: APPROVED. Header status changed DRAFT -> APPROVED.
+
+---
+
+## 2026-07-20 - `specs/format/02-label-checksum-sha256-packing.md`
+
+Reviewed: the SHA-256 digest-to-word packing for the label/uberblock self-checksum trailer (request #2) - the mapping from the 256-bit SHA-256 output to the four 64-bit checksum words, the big-endian pairing orientation, host-endianness independence of the word values vs. writer-native on-disk byte order, the reader comparison rule, and packing test vectors.
+
+Spot-checks against the pinned source (`9b7642df...`) confirmed as facts: the label/uberblock checksum is SHA-256; the 256-bit result is stored as four 64-bit words; each word is the big-endian 64-bit pairing of two consecutive FIPS 180 hash words, high word first (`word[j] = (H(2j)<<32)|H(2j+1)`); the word values are forced to one big-endian orientation so they are identical for little- and big-endian writers (there is no separate byte-swap variant of this checksum's value); the words are then stored in writer-native order and corrected on read via the trailer magic; all four words are compared with no truncation.
+
+Leak scan: clean. No source identifiers, function/type/macro names, comments, or source-mirroring structure. FIPS 180 notation (H0..H7, D[0..31]) and neutral `word[j]` terms only. The two worked examples use the published standard SHA-256 test vectors (empty input and "abc"), independently verified, not ZFS-specific data.
+
+Outcome: APPROVED. Header status set DRAFT -> APPROVED.
