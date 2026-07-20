@@ -41,6 +41,7 @@ The `zfs-gpl` implementation repo consumes these specs pinned to specific commit
 ## Layout
 
 - `specs/format/` - on-disk format specifications.
+- `requests.md` - the logged question channel from the implementation side; requests in, approved specs out.
 - `provenance.md` - source studied, derivation method, per-fact provenance tagging.
 - `gatekeeper-log.md` - dated review log; one entry per spec approval.
 - `project/` - spec backlog and design notes.

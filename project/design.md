@@ -17,12 +17,13 @@ How this spec repo is organized and the rules it runs under. The spec-coverage t
 ### Folder structure
 
 - `specs/format/` - on-disk format specifications, numbered in coverage order.
+- `requests.md` - logged question channel from the implementation side.
 - `provenance.md`, `gatekeeper-log.md` - derivation method and per-spec review record.
 - `project/` - this design doc and the spec backlog.
 
 ### Data flow
 
-Dirty-side draft (pinned source) -> gatekeeper review -> approved spec -> consumed by the `zfs-gpl` implementation at a pinned commit.
+Implementation-side request (`requests.md`, questions only) -> dirty-side draft (pinned source) -> gatekeeper review -> approved spec -> consumed by the `zfs-gpl` implementation at a pinned commit. Requests and dispositions are permanently logged in git; answers travel only as approved specs.
 
 ## Direction decisions
 
