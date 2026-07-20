@@ -22,7 +22,7 @@ Spec-coverage backlog. Each item is a spec to draft, gatekeep, and approve. Spec
 ### Durable core (2006-corroborated)
 
 - ✅ VDEV label and uberblock (`specs/format/01-vdev-label-uberblock.md`, approved `7f86d1b`)
-- 🔘 Label/uberblock self-checksum: digest-to-word packing detail needed for byte-exact interop
+- ✅ Label/uberblock self-checksum: digest-to-word packing detail needed for byte-exact interop (`specs/format/02-label-checksum-sha256-packing.md`)
 - 🔘 Config nvlist: XDR encoding and key strings
 - 🔘 Block pointers and DVAs: layout, checksum and compression identities, endianness
 - 🔘 DMU: dnode and object-set layout
@@ -42,6 +42,7 @@ Spec-coverage backlog. Each item is a spec to draft, gatekeep, and approve. Spec
 ### Done
 
 - ✅ VDEV label and uberblock spec (first spec through the pipeline; one leaked macro name stripped in review)
+- ✅ Label/uberblock SHA-256 digest-to-word packing spec (request #2; leak scan clean)
 
 ### Future and/or deferred
 
