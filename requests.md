@@ -14,4 +14,4 @@ The logged, one-way question channel from the implementation side. This file is 
 | # | Date | Request | Disposition
 | :-- | :-- | :-- | :--
 | 1 | 2026-07-18 | Vdev label geometry, uberblock format, endianness detection, active-uberblock selection | spec'd -> `specs/format/01-vdev-label-uberblock.md` @ `7f86d1b`
-| 2 | 2026-07-19 | Label/uberblock self-checksum: digest-to-word packing of the embedded SHA-256 (needed before claiming interop) | open
+| 2 | 2026-07-19 | Label/uberblock self-checksum: digest-to-word packing of the embedded SHA-256 (needed before claiming interop) | spec'd -> `specs/format/02-label-checksum-sha256-packing.md` @ `cf0592b`
