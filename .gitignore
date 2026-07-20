@@ -1,2 +1,2 @@
-# Local Claude working files (memory, details, local settings) - not tracked.
-.claude/
+# Local Claude working dir (memory, details, local settings) - symlink into ./private/, never tracked.
+.claude
