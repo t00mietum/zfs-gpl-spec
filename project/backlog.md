@@ -1,0 +1,48 @@
+<!-- markdownlint-disable MD007 -- Unordered list indentation -->
+<!-- markdownlint-disable MD010 -- No hard tabs -->
+<!-- markdownlint-disable MD033 -- No inline html -->
+<!-- markdownlint-disable MD055 -- Table pipe style [Expected: leading_and_trailing; Actual: leading_only; Missing trailing pipe] -->
+<!-- markdownlint-disable MD041 -- This is a spec-repo backlog -->
+# Requirements
+
+Spec-coverage backlog. Each item is a spec to draft, gatekeep, and approve. Specs are written in the order the [`zfs-gpl`](https://github.com/t00mietum/zfs-gpl) implementation needs them. Companion: [`design.md`](design.md).
+
+## Conventions
+
+| Icon | Status
+| :--: | :--
+| 🔘   | Not started
+| 🛠️   | Started, and/or partially complete
+| ✋   | Defer
+| ✅   | Complete
+| 🚫   | Canceled
+
+## Backlog
+
+### Durable core (2006-corroborated)
+
+- ✅ VDEV label and uberblock (`specs/format/01-vdev-label-uberblock.md`, approved `7f86d1b`)
+- 🔘 Label/uberblock self-checksum: digest-to-word packing detail needed for byte-exact interop
+- 🔘 Config nvlist: XDR encoding and key strings
+- 🔘 Block pointers and DVAs: layout, checksum and compression identities, endianness
+- 🔘 DMU: dnode and object-set layout
+- 🔘 ZAP: micro and fat
+- 🔘 DSL: dataset and snapshot on-disk structures
+- 🔘 ZPL: directory and file layout, attributes
+
+### Modern features (post-2006, source-only)
+
+- 🔘 Feature flags: detection and gating
+- 🔘 Compression identities: lz4, zstd, gzip
+- 🔘 Checksum identities beyond the core: edonr, blake3, skein
+- 🔘 Native encryption format
+- 🔘 dRAID and raidz geometry
+- 🔘 Log spacemaps, large dnodes, large/embedded blocks
+
+### Done
+
+- ✅ VDEV label and uberblock spec (first spec through the pipeline; one leaked macro name stripped in review)
+
+### Future and/or deferred
+
+### Canceled
