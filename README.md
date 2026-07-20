@@ -36,12 +36,12 @@ Nothing here is copied from OpenZFS source. No source lines (verbatim or paraphr
 
 ## How it is consumed
 
-The `zfs-gpl` implementation repo consumes these specs pinned to specific commit hashes of this repository. An implementer works from the approved fact statements alone and never sees or references OpenZFS source. See [`PROVENANCE.md`](PROVENANCE.md) for what was studied and how the facts were derived, and [`gatekeeper-log.md`](gatekeeper-log.md) for the per-spec review record.
+The `zfs-gpl` implementation repo consumes these specs pinned to specific commit hashes of this repository. An implementer works from the approved fact statements alone and never sees or references OpenZFS source. See [`provenance.md`](provenance.md) for what was studied and how the facts were derived, and [`gatekeeper-log.md`](gatekeeper-log.md) for the per-spec review record.
 
 ## Layout
 
 - `specs/format/` - on-disk format specifications.
-- `PROVENANCE.md` - source studied, derivation method, per-fact provenance tagging.
+- `provenance.md` - source studied, derivation method, per-fact provenance tagging.
 - `gatekeeper-log.md` - dated review log; one entry per spec approval.
 - `project/` - spec backlog and design notes.
 
