@@ -25,6 +25,10 @@ Every fact in a spec carries a provenance tag so a reader can distinguish the du
 - `[2006]` - corroborated by the public 2006 Sun "ZFS On-Disk Specification".
 - `[modern]` - source-only; a post-2006 addition or refinement observed in current OpenZFS and required to interoperate with pools written by recent OpenZFS. Not part of the original published spec.
 
+## Authorship
+
+The specifications are written by Claude (Anthropic's LLM-based agent), operating as the spec side of the clean-room process - a role isolated from the implementation side, which never sees OpenZFS source. The human maintainer directs the work and contributes documentation, not spec content. From 2026-07-19 forward, Claude commits are authored as `Claude <claude@bubblesnet.com>` with trailers recording the exact model, effort setting, and isolated instance (`Model:` / `Effort:` / `Instance:`), plus `Co-Authored-By: Claude <noreply@anthropic.com>` so the work is visibly credited to Claude's GitHub identity. Earlier commits were authored under the maintainer's project identity; history is not rewritten.
+
 ## Review
 
 Draft specs are gatekept before they become authoritative. The gatekeeper strips any leaked expression, confirms facts are stated correctly, and records the review in `gatekeeper-log.md`. Only approved specs are authoritative.
