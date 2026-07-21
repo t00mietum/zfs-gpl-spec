@@ -15,3 +15,4 @@ The logged, one-way question channel from the implementation side. This file is 
 | :-- | :-- | :-- | :--
 | 1 | 2026-07-18 | Vdev label geometry, uberblock format, endianness detection, active-uberblock selection | spec'd -> `specs/format/01-vdev-label-uberblock.md` @ `7f86d1b`
 | 2 | 2026-07-19 | Label/uberblock self-checksum: digest-to-word packing of the embedded SHA-256 (needed before claiming interop) | spec'd -> `specs/format/02-label-checksum-sha256-packing.md` @ `cf0592b`
+| 3 | 2026-07-21 | Config nvlist: byte-exact XDR wire encoding (bootstrap header, pair framing, primitive/array/nested encodings, type codes, terminator) - needed to unpack the label config | spec'd -> `specs/format/03-config-nvlist-xdr-encoding.md` @ `6743872`

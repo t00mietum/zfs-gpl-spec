@@ -25,3 +25,15 @@ Spot-checks against the pinned source (`9b7642df...`) confirmed as facts: the la
 Leak scan: clean. No source identifiers, function/type/macro names, comments, or source-mirroring structure. FIPS 180 notation (H0..H7, D[0..31]) and neutral `word[j]` terms only. The two worked examples use the published standard SHA-256 test vectors (empty input and "abc"), independently verified, not ZFS-specific data.
 
 Outcome: APPROVED. Header status set DRAFT -> APPROVED.
+
+---
+
+## 2026-07-21 - `specs/format/03-config-nvlist-xdr-encoding.md`
+
+Reviewed: the byte-exact XDR wire encoding of the config nvlist (request #3) - the 4-byte bootstrap header (encoding + endian + two reserved), the version+flags list header, the per-pair framing (encoded size, decoded size, XDR-string name, type code, element count, value), XDR primitive rules (4-byte big-endian widening, 8-byte hypers, string length+pad, opaque arrays, numeric/string arrays), nested NVLIST / NVLIST_ARRAY embedding, the full type-code table, and the two-zero terminator. Refines spec 01 section 3.1; the key catalog stays in spec 01 and is not duplicated.
+
+Spot-checks against the pinned source (`9b7642df...`) confirmed as facts: on-disk config uses the XDR encoding (encoding byte 1); the XDR body is inherently big-endian and the endian tag byte is not consulted when decoding XDR (only the native encoding checks it); list header is version (0) + flags; each pair carries a 4-byte encoded size and 4-byte decoded size ahead of name/type/nelem/value; strings are length-prefixed and padded to 4; 64-bit values are 8-byte hypers; embedded lists repeat the version+flags header and terminator but not the bootstrap header; the list ends at a pair whose sizes are zero; type codes are a fixed ordered enumeration (classic set 1-20, appended set 21+).
+
+Leak scan: clean. Scanned for source identifiers (type/struct/function/macro names, field names, the source's descriptive comment wording) - none present. Type names used (UINT64, STRING, NVLIST, etc.) are the neutral capability names shared with public XDR/nvlist documentation, not the source `DATA_TYPE_*` symbols; field descriptions are independently worded, not copied from the source layout comment. Referenced key strings (`vdev_tree`, `children`, `features_for_read`) are on-disk interface facts already approved in spec 01.
+
+Outcome: APPROVED. Header status set DRAFT -> APPROVED.
