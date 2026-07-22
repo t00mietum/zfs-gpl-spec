@@ -37,3 +37,15 @@ Spot-checks against the pinned source (`9b7642df...`) confirmed as facts: on-dis
 Leak scan: clean. Scanned for source identifiers (type/struct/function/macro names, field names, the source's descriptive comment wording) - none present. Type names used (UINT64, STRING, NVLIST, etc.) are the neutral capability names shared with public XDR/nvlist documentation, not the source `DATA_TYPE_*` symbols; field descriptions are independently worded, not copied from the source layout comment. Referenced key strings (`vdev_tree`, `children`, `features_for_read`) are on-disk interface facts already approved in spec 01.
 
 Outcome: APPROVED. Header status set DRAFT -> APPROVED.
+
+---
+
+## 2026-07-21 - `specs/format/04-block-pointer-dva.md`
+
+Reviewed: the 128-byte block pointer and its DVAs (request #4) - the sixteen-word/bit map, the three DVAs (vdev id, allocated size, gang bit, vdev-relative offset in 512-byte sectors, the 4 MiB data-start skip and `(offset << 9) + 0x400000` device-offset formula), the property word bit fields (LSIZE/PSIZE with +1 sector bias, compression, embedded flag, checksum identity, DMU type, indirection level, crypt/dedup/byteorder), the birth-txg words (physical/logical split), fill count and 256-bit checksum, the byteorder-bit byteswap rule, the hole/gang/embedded variants (including the 112-byte embedded payload word set and the byte-unit embedded size encoding), and the checksum (7.1) and compression (7.2) identity code enumerations.
+
+Spot-checks against the pinned source (`9b7642df...`) confirmed as facts: 128-byte pointer, 3 DVAs, 512-byte sector unit; DVA word 0 = ASIZE (bits 0..23, `raw<<9`, no bias), reserved bits 24..31, vdev id at bit 32 (24-bit active width, high 8 zero); DVA word 1 = 63-bit offset + gang bit 63; data area begins 4 MiB in (2 front labels + 3.5 MiB boot, matching spec 01); property word field offsets (LSIZE 0..15, PSIZE 16..31, comp 32..38, embedded 39, checksum 40..47, type 48..55, level 56..60, crypt 61, dedup 62, byteorder 63); LSIZE/PSIZE `(raw+1)<<9` with 32 MiB ceiling; byteorder polarity 0=BE/1=LE with swap-iff-differs; physical birth word 0 meaning "same as logical"; fill count and four checksum words; embedded payload = 14 words (all except property and logical-birth) = 112 bytes with byte-unit sizes and etype at bits 40..47 (0 DATA, 2 REDACTED); checksum identity codes 0..14 and compression identity codes 0..16 in their on-disk order.
+
+Leak scan: clean. Scanned for source identifiers (struct/field names, `BP_*`/`DVA_*`/`BPE_*` macros, `BF64_*`, `ZIO_CHECKSUM_*`/`ZIO_COMPRESS_*` symbols, `SPA_*` constants, gang/label struct type names) - none present. Field and size abbreviations used (DVA, ASIZE, LSIZE, PSIZE, vdev, gang, fill count) are the neutral on-disk terms from the public 2006 spec; algorithm names (fletcher-2/4, SHA-256/512, Skein, Edon-R, BLAKE3, LZJB, gzip, ZLE, LZ4, zstd) are public algorithm names, not source symbols; the numeric identity codes are on-disk interface facts. Cross-references to specs 01 and 02 point at already-approved material and do not restate it.
+
+Outcome: APPROVED. Header status set DRAFT -> APPROVED.
