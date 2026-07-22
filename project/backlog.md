@@ -25,7 +25,7 @@ Spec-coverage backlog. Each item is a spec to draft, gatekeep, and approve. Spec
 - ✅ Label/uberblock self-checksum: digest-to-word packing detail needed for byte-exact interop (`specs/format/02-label-checksum-sha256-packing.md`)
 - ✅ Config nvlist: XDR wire encoding (`specs/format/03-config-nvlist-xdr-encoding.md`; key catalog already in spec 01 §3)
 - ✅ Block pointers and DVAs: layout, checksum and compression identities, endianness (`specs/format/04-block-pointer-dva.md`, approved `req4`)
-- 🔘 DMU: dnode and object-set layout
+- ✅ DMU: dnode and object-set layout (`specs/format/05-dmu-dnode-objset.md`, approved `req5`)
 - 🔘 ZAP: micro and fat
 - 🔘 DSL: dataset and snapshot on-disk structures
 - 🔘 ZPL: directory and file layout, attributes
@@ -45,6 +45,7 @@ Spec-coverage backlog. Each item is a spec to draft, gatekeep, and approve. Spec
 - ✅ Label/uberblock SHA-256 digest-to-word packing spec (request #2; leak scan clean)
 - ✅ Config nvlist XDR wire-encoding spec (request #3; leak scan clean - neutral type names only, no source identifiers)
 - ✅ Block pointer / DVA layout spec (request #4; leak scan clean - neutral field terms + public algorithm names + numeric identity codes, no source symbols)
+- ✅ DMU dnode / object-set layout spec (request #5; leak scan clean - neutral on-disk role names + numeric type/flag codes, no source struct/field/macro symbols)
 
 ### Future and/or deferred
 
