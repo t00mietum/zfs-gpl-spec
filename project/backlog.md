@@ -27,7 +27,7 @@ Spec-coverage backlog. Each item is a spec to draft, gatekeep, and approve. Spec
 - ✅ Block pointers and DVAs: layout, checksum and compression identities, endianness (`specs/format/04-block-pointer-dva.md`, approved `req4`)
 - ✅ DMU: dnode and object-set layout (`specs/format/05-dmu-dnode-objset.md`, approved `req5`)
 - ✅ ZAP: micro and fat (`specs/format/06-zap.md`)
-- 🔘 DSL: dataset and snapshot on-disk structures
+- ✅ DSL: dataset and snapshot on-disk structures (`specs/format/07-dsl-dataset-snapshot.md`)
 - 🔘 ZPL: directory and file layout, attributes
 
 ### Modern features (post-2006, source-only)
@@ -47,6 +47,7 @@ Spec-coverage backlog. Each item is a spec to draft, gatekeep, and approve. Spec
 - ✅ Block pointer / DVA layout spec (request #4; leak scan clean - neutral field terms + public algorithm names + numeric identity codes, no source symbols)
 - ✅ DMU dnode / object-set layout spec (request #5; leak scan clean - neutral on-disk role names + numeric type/flag codes, no source struct/field/macro symbols)
 - ✅ ZAP micro/fat spec (request #6; leak scan cleaned in review - identifier-shaped field labels neutralized; three draft fact errors corrected before approval: NUL-exclusion in the hash, 32-bit CD width, 48-bit wide-hash truncation)
+- ✅ DSL directory/dataset/snapshot spec (request #7; leak scan clean - neutral field labels, on-disk key strings retained as interface facts; two draft errors corrected before approval: deadlist bucket rule is strictly-less-than, clone sets hold head *dataset* objects despite a stale source comment saying dir objects)
 
 ### Future and/or deferred
 
