@@ -26,7 +26,7 @@ Spec-coverage backlog. Each item is a spec to draft, gatekeep, and approve. Spec
 - ✅ Config nvlist: XDR wire encoding (`specs/format/03-config-nvlist-xdr-encoding.md`; key catalog already in spec 01 §3)
 - ✅ Block pointers and DVAs: layout, checksum and compression identities, endianness (`specs/format/04-block-pointer-dva.md`, approved `req4`)
 - ✅ DMU: dnode and object-set layout (`specs/format/05-dmu-dnode-objset.md`, approved `req5`)
-- 🔘 ZAP: micro and fat
+- ✅ ZAP: micro and fat (`specs/format/06-zap.md`)
 - 🔘 DSL: dataset and snapshot on-disk structures
 - 🔘 ZPL: directory and file layout, attributes
 
@@ -46,6 +46,7 @@ Spec-coverage backlog. Each item is a spec to draft, gatekeep, and approve. Spec
 - ✅ Config nvlist XDR wire-encoding spec (request #3; leak scan clean - neutral type names only, no source identifiers)
 - ✅ Block pointer / DVA layout spec (request #4; leak scan clean - neutral field terms + public algorithm names + numeric identity codes, no source symbols)
 - ✅ DMU dnode / object-set layout spec (request #5; leak scan clean - neutral on-disk role names + numeric type/flag codes, no source struct/field/macro symbols)
+- ✅ ZAP micro/fat spec (request #6; leak scan cleaned in review - identifier-shaped field labels neutralized; three draft fact errors corrected before approval: NUL-exclusion in the hash, 32-bit CD width, 48-bit wide-hash truncation)
 
 ### Future and/or deferred
 
